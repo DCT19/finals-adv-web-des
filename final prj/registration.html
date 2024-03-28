@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pokemon GO</title>
+<style>
+    .error {
+        color:red;
+    }
+</style>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!--slick slider stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css" />
+  <link rel="icon" type="image/x-icon" href="https://assets1.phonebooky.com/listings/logos/000/029/382/original/59840592_10157229891393850_244127332674043904_o.jpg">
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+  <!-- slick slider -->
+
+  <link rel="stylesheet" href="css/slick-theme.css" />
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+</head>
+<body class="sub_page">
+    
+  <div class="main_body_content">
+
+    <div class="hero_area">
+            <!-- header section strats -->
+            <header class="header_section">
+              <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                  <a class="navbar-brand" href="about.html">
+                    Pokemon GO
+                  </a>
+                  </a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class=""> </span>
+                  </button>
+      
+                  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item ">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="registration.html">Register</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="Store.html">Store</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="profile.html">Profile</a>
+                      </li>
+                    </ul>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </header>
+            <!-- end header section -->
+    </div>
+
+    <style>
+        .error {
+            color: red;
+        }
+        button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        font-size: 40px;
+        cursor: pointer;
+    }
+    button[type="submit"]:hover {
+        background-color: #3c60ff;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <form id="registrationForm">
+        <div>
+            <h1 style="text-align:center"></style>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+            <span id="emailError" class="error"></span>
+        </div>
+        <div>
+            <h1 style="text-align:center"></style>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <h1 style="text-align:center"></style>
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            <span id="passwordError" class="error"></span>
+        </div>
+        <div>
+            <h1 style="text-align:center"></style>
+            <label for="playerID">Player ID:</label>
+            <input type="text" id="playerID" name="playerID" readonly>
+        </div>
+        <div>
+            <h1 style="text-align:center"></style>
+            <label for="ign">IGN (In-Game Name):</label>
+            <input type="text" id="ign" name="ign" required>
+        </div>
+
+        <button type="submit">Register</button>
+
+    </form>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const registrationForm = document.getElementById('registrationForm');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const playerIDInput = document.getElementById('playerID');
+    
+            // Generate random player ID
+            function generatePlayerID() {
+                let id = '';
+                for (let i = 0; i < 12; i++) {
+                    id += Math.floor(Math.random() * 10);
+                    if ((i + 1) % 4 === 0 && i !== 11) {
+                        id += ' ';
+                    }
+                }
+                return id;
+            }
+    
+            playerIDInput.value = generatePlayerID();
+    
+            // Validate password match
+            function validatePassword() {
+                if (passwordInput.value !== confirmPasswordInput.value) {
+                    document.getElementById('passwordError').textContent = 'Passwords do not match';
+                    return false;
+                } else {
+                    document.getElementById('passwordError').textContent = '';
+                    return true;
+                }
+            }
+    
+            confirmPasswordInput.addEventListener('input', validatePassword);
+    
+            // Form submission
+            registrationForm.addEventListener('submit', function (event) {
+                if (!validatePassword()) {
+                    event.preventDefault();
+                }
+                // Additional validation or submission logic can be added here
+            });
+        });
+    </script>
+
+    <!-- info section -->
+<section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row info_form_social_row">
+        <div class="col-md-8 col-lg-9">
+          <div class="info_form">
+            <form action="">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                <i class aria-hidden="true"> SUBSCRIBE </i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+
+          <div class="social_box">
+            <a href="https://www.facebook.com/PokemonGO">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://twitter.com/PokemonGo">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row info_main_row">
+        <div class="col-md-6 col-lg-3">
+          <div class="info_links">
+            <h4>
+              Menu
+            </h4>
+            <div class="info_links_menu">
+              <a href="index.html">
+                Home
+              </a>
+              <a href="registration.html">
+                Register
+              </a>
+              <a href="Store.html">
+                Store
+              </a>
+              <a href="profile.html">
+                Profile
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="info_insta">
+            <h4>
+              Popular Items:
+            </h4>
+            <div class="insta_box">
+              <div class="img-box">
+                <img src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-rel-assets%2Fpgo%2Fsku_assets%2Fweb-season-14-ticket-bundle.png&w=384&q=75" alt="">
+              </div>
+              <p>
+                Wonder Ticket
+              </p>
+            </div>
+            <div class="insta_box">
+              <div class="img-box">
+                <img src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-rel-assets%2Fpgo%2Fsku_assets%2Fweb-go-fest-2024-ticket.png&w=384&q=75" alt="">
+              </div>
+              <p>
+                Pokemon GO Fest 2024: Global Ticket
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="info_detail">
+            <h4>
+              Game
+            </h4>
+            <p class="mb-0">
+             Pokémon Go (stylized as Pokémon GO) is a 2016 augmented reality (AR) mobile game, part of the Pokémon franchise, developed and published by Niantic in collaboration with Nintendo and The Pokémon Company for iOS and Android devices. It uses mobile devices with GPS to locate, capture, train, and battle virtual Pokémon, which appear as if they are in the player's real-world location. The game is free-to-play; it uses a freemium business model combined with local advertising and supports in-app purchases for additional in-game items. The game launched with around 150 species of Pokémon, which had increased to around 700 by 2021. 
+            </p>
+          </div>
+        </div>
+
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- end info_section -->
+
+</div>
+
+<!-- footer section -->
+<footer class="container-fluid footer_section">
+  <div class="container">
+    <div class="col-md-11 col-lg-8 mx-auto">
+      <p>For educational purposes only.The copyright for the mages and
+        other information used on this project is owned by Pokemon GO. 
+        No copyright infringement is intended. </p>
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By Pokemon GO
+      </p>
+    </div>
+  </div>
+
+  
+  <!-- jQery -->
+  <script  src="js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script  src="js/bootstrap.js"></script>
+  <!-- slick slider -->
+  <script  src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
+  <!-- custom js -->
+  <script  src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  <!-- End Google Map -->
+
+</body>
+</html>
